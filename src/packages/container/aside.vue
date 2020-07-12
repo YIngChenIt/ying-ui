@@ -1,5 +1,7 @@
 <template>
-  <aside class="y-aside" :style="{width}"></aside>
+  <aside class="y-aside" :style="{width}">
+    aside
+  </aside>
 </template>
 
 <script>

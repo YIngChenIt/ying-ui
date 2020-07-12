@@ -1,17 +1,20 @@
 <template>
-  <footer class="y-footer">
+  <footer :style="{ 'height': height }" class="y-footer">
     <slot></slot>
   </footer>
 </template>
 
 <script>
 export default {
-  name: "y-footer"
+  name: "y-footer",
+  props: {
+    height: {
+      type: String,
+      default: '60px'
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-.y-footer {
-  height: 60px;
-}
 </style>
