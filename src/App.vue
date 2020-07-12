@@ -1,35 +1,74 @@
 <template>
   <div id="app">
-    <!-- 默认按钮 -->
-    <y-button>默认按钮</y-button>
-    <br />
-    <!-- 带类型的按钮 -->
-    <y-button type="primary">主要按钮</y-button>
-    <y-button type="warning">警告按钮</y-button>
-    <y-button type="danger">危险按钮</y-button>
-    <y-button type="success">成功按钮</y-button>
-    <y-button type="info">信息按钮</y-button>
-    <br />
-    <!-- 带icon的按钮 -->
-    <y-button type="info" icon="sousuo">信息按钮</y-button>
-    <y-button type="primary" icon="sousuo"></y-button>
-    <y-button type="success" icon="sousuo" icon-position="right">内容</y-button>
-    <br />
-    <!-- loading按钮 -->
-    <y-button type="success" loading>加载中</y-button>
-    <br />
-    <!-- 触发事件 -->
-    <y-button type="success" @click="fn">触发事件</y-button>
-    <br />
+    <y-row>
+      <y-col :span="12">
+        <div>aaaa</div>
+      </y-col>
+      <y-col :span="12">
+        <div>bbb</div>
+      </y-col>
+    </y-row>
+    <y-row>
+      <y-col>
+        <div>vvv</div>
+      </y-col>
+    </y-row>
 
-    <y-button-group>
-      <y-button type="primary" icon="left" icon-position="left">上一页</y-button>
-      <y-button type="primary" icon="right" icon-position="right">下一页</y-button>
-    </y-button-group>
+    <hr />
 
-    <y-icon icon="sousuo"></y-icon>
-    <y-icon icon="edit"></y-icon>
-    <br />
+    <y-row>
+      <y-col :span="6">
+        <div>vvv</div>
+      </y-col>
+      <y-col :span="6" :offset="12">
+        <div>vvv</div>
+      </y-col>
+    </y-row>
+
+    <hr />
+
+    <y-row :gutter="20">
+      <y-col :span="6">
+        <div class="red">vvv</div>
+      </y-col>
+      <y-col :span="6">
+        <div class="green">vvv</div>
+      </y-col>
+      <y-col :span="6">
+        <div class="red">vvv</div>
+      </y-col>
+      <y-col :span="6">
+        <div class="green">vvv</div>
+      </y-col>
+    </y-row>
+
+    <hr />
+
+    <y-row justify="center">
+      <y-col :span="3">
+        <div class="red">ccc</div>
+      </y-col>
+      <y-col :span="3">
+        <div class="red">ccc</div>
+      </y-col>
+    </y-row>
+
+    <hr />
+
+    <y-row :gutter="10">
+      <y-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+        <div class="grid-content bg-purple"></div>
+      </y-col>
+      <y-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        <div class="grid-content bg-purple-light"></div>
+      </y-col>
+      <y-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        <div class="grid-content bg-purple"></div>
+      </y-col>
+      <y-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+        <div class="grid-content bg-purple-light"></div>
+      </y-col>
+    </y-row>
   </div>
 </template>
 
@@ -43,3 +82,26 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.red {
+  background: red;
+}
+.green {
+  background: green;
+}
+
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #d3dce6;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+</style>
