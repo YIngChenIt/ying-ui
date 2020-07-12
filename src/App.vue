@@ -1,74 +1,56 @@
 <template>
   <div id="app">
-    <y-row>
-      <y-col :span="12">
-        <div>aaaa</div>
-      </y-col>
-      <y-col :span="12">
-        <div>bbb</div>
-      </y-col>
-    </y-row>
-    <y-row>
-      <y-col>
-        <div>vvv</div>
-      </y-col>
-    </y-row>
+    <y-container>
+      <y-header>Header</y-header>
+      <y-main>Main</y-main>
+    </y-container>
 
-    <hr />
+    <y-container>
+      <y-header>Header</y-header>
+      <y-main>Main</y-main>
+      <y-footer>Footer</y-footer>
+    </y-container>
 
-    <y-row>
-      <y-col :span="6">
-        <div>vvv</div>
-      </y-col>
-      <y-col :span="6" :offset="12">
-        <div>vvv</div>
-      </y-col>
-    </y-row>
+    <y-container>
+      <y-aside width="200px">Aside</y-aside>
+      <y-main>Main</y-main>
+    </y-container>
 
-    <hr />
+    <y-container>
+      <y-header>Header</y-header>
+      <y-container>
+        <y-aside width="200px">Aside</y-aside>
+        <y-main>Main</y-main>
+      </y-container>
+    </y-container>
 
-    <y-row :gutter="20">
-      <y-col :span="6">
-        <div class="red">vvv</div>
-      </y-col>
-      <y-col :span="6">
-        <div class="green">vvv</div>
-      </y-col>
-      <y-col :span="6">
-        <div class="red">vvv</div>
-      </y-col>
-      <y-col :span="6">
-        <div class="green">vvv</div>
-      </y-col>
-    </y-row>
+    <y-container>
+      <y-header>Header</y-header>
+      <y-container>
+        <y-aside width="200px">Aside</y-aside>
+        <y-container>
+          <y-main>Main</y-main>
+          <y-footer>Footer</y-footer>
+        </y-container>
+      </y-container>
+    </y-container>
 
-    <hr />
+    <y-container>
+      <y-aside width="200px">Aside</y-aside>
+      <y-container>
+        <y-header>Header</y-header>
+        <y-main>Main</y-main>
+      </y-container>
+    </y-container>
 
-    <y-row justify="center">
-      <y-col :span="3">
-        <div class="red">ccc</div>
-      </y-col>
-      <y-col :span="3">
-        <div class="red">ccc</div>
-      </y-col>
-    </y-row>
-
-    <hr />
-
-    <y-row :gutter="10">
-      <y-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-        <div class="grid-content bg-purple"></div>
-      </y-col>
-      <y-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-        <div class="grid-content bg-purple-light"></div>
-      </y-col>
-      <y-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-        <div class="grid-content bg-purple"></div>
-      </y-col>
-      <y-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-        <div class="grid-content bg-purple-light"></div>
-      </y-col>
-    </y-row>
+    <y-container>
+      <y-aside width="200px">Aside</y-aside>
+      <y-container>
+        <y-header>Header</y-header>
+        <y-main>Main</y-main>
+        <y-footer>Footer</y-footer>
+      </y-container>
+    </y-container>
   </div>
 </template>
 
@@ -103,5 +85,40 @@ export default {
 .grid-content {
   border-radius: 4px;
   min-height: 36px;
+}
+
+.y-header,
+.y-footer {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+
+.y-aside {
+  background-color: #d3dce6;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+}
+
+.y-main {
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
+}
+
+body > .y-container {
+  margin-bottom: 40px;
+}
+
+.y-container:nth-child(5) .y-aside,
+.y-container:nth-child(6) .y-aside {
+  line-height: 260px;
+}
+
+.y-container:nth-child(7) .y-aside {
+  line-height: 320px;
 }
 </style>
