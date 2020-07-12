@@ -1,5 +1,5 @@
-import Button from './button.vue'
-import ButtonGroup from './button-group.vue'
+import Button from './button/button.vue'
+import ButtonGroup from './button/button-group.vue'
 import Icon from './icon.vue'
 
 const install = (Vue) => {

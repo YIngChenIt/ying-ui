@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/_var.scss";
+@import "../../styles/_var.scss";
 
 $height: 42px;
 $font-size: 16px;
