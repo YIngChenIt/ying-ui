@@ -1,65 +1,54 @@
 <template>
   <div id="app">
-    <y-container>
-      <y-header>Header</y-header>
-      <y-main>Main</y-main>
-    </y-container>
-
-    <y-container>
-      <y-header>Header</y-header>
-      <y-main>Main</y-main>
-      <y-footer>Footer</y-footer>
-    </y-container>
-
-    <y-container>
-      <y-aside width="200px">Aside</y-aside>
-      <y-main>Main</y-main>
-    </y-container>
-
-    <y-container>
-      <y-header>Header</y-header>
-      <y-container>
-        <y-aside width="200px">Aside</y-aside>
-        <y-main>Main</y-main>
-      </y-container>
-    </y-container>
-
-    <y-container>
-      <y-header>Header</y-header>
-      <y-container>
-        <y-aside width="200px">Aside</y-aside>
-        <y-container>
-          <y-main>Main</y-main>
-          <y-footer>Footer</y-footer>
-        </y-container>
-      </y-container>
-    </y-container>
-
-    <y-container>
-      <y-aside width="200px">Aside</y-aside>
-      <y-container>
-        <y-header>Header</y-header>
-        <y-main>Main</y-main>
-      </y-container>
-    </y-container>
-
-    <y-container>
-      <y-aside width="200px">Aside</y-aside>
-      <y-container>
-        <y-header>Header</y-header>
-        <y-main>Main</y-main>
-        <y-footer>Footer</y-footer>
-      </y-container>
-    </y-container>
+    <y-upload
+      name="avatar"
+      action="http://localhost:3000/upload"
+      :file-list="fileList"
+      :limit="5"
+      accept="image/jpeg"
+      :multiple="true"
+      :on-exceed="handleExceed"
+      :on-change="handleChange"
+      :on-success="handleSuccess"
+      :on-error="handleError"
+      :on-progress="handleProgress"
+      :beforeUpload="beforeUpload"
+      :drag="true"
+    >
+      <y-button type="primary" icon="shangchuan">点击上传</y-button>
+      <div slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+    </y-upload>
   </div>
 </template>
 
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      fileList: []
+    };
+  },
   methods: {
-    fn(e) {
-      console.log(e);
+    handleExceed(files, fileList) {
+      console.log("用户传递的已经超过预期");
+    },
+    handleChange(file) {
+      // console.log(file);
+    },
+    handleSuccess() {},
+    handleError() {},
+    handleProgress() {},
+    beforeUpload(rawFile) {
+      let limitSize = rawFile.size / 1024 > 500;
+      if (limitSize) {
+        console.log("当前超过了500k");
+        return false;
+      } else if (!rawFile.name.endsWith(".jpg")) {
+        console.log("文件类型不对");
+        return false;
+      }
+      return true;
     }
   }
 };

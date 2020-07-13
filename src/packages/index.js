@@ -9,6 +9,8 @@ import Container from './container/container.vue'
 import Footer from './container/footer.vue'
 import Main from './container/main.vue'
 import Input from './input.vue'
+import Upload from './upload/upload.vue'
+import Progress from './progress.vue'
 
 const install = (Vue) => {
     Vue.component(Button.name, Button)
@@ -22,6 +24,8 @@ const install = (Vue) => {
     Vue.component(Footer.name, Footer)
     Vue.component(Main.name, Main)
     Vue.component(Input.name, Input)
+    Vue.component(Upload.name, Upload)
+    Vue.component(Progress.name, Progress)
 }
 
 // 全局通过script引入
