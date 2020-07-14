@@ -13,7 +13,7 @@
       :on-error="handleError"
       :on-progress="handleProgress"
       :beforeUpload="beforeUpload"
-      :drag="true"
+      :drag="false"
     >
       <y-button type="primary" icon="shangchuan">点击上传</y-button>
       <div slot="tip">只能上传jpg/png文件，且不超过500kb</div>

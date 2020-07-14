@@ -1,7 +1,7 @@
 <template>
   <div class="y-upload-dragger" @drop.prevent="onDrop" @dragover.prevent @dragleave.prevent>
     <y-icon icon="shangchuan" class="icon"></y-icon>
-    <span>将文件拖拽到此区域即可</span>
+    <div>将文件拖拽到此区域即可</div>
   </div>
 </template>
 
@@ -21,18 +21,23 @@ export default {
 
 <style lang="scss">
 .y-upload-dragger {
-  background: #eee;
-  border: 1px solid #aaa;
+  background-color: #fff;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  box-sizing: border-box;
   width: 360px;
   height: 180px;
-  line-height: 180px;
-  border-radius: 10px;
-  flex-direction: row;
-  display: flex;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    border-color: #409eff;
+  }
   .icon {
     width: 65px;
     height: 65px;
-    margin: 65px auto 10px;
+    margin: 40px auto 10px;
   }
 }
 </style>

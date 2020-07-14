@@ -162,19 +162,19 @@ export default {
       const file = this.getFile(rawFile);
       file.status = "uploading";
       file.percentage = ev.percent || 0;
-      this.onProgress(ev, rawFile);
+      this.onProgress && this.onProgress(ev, rawFile);
     },
     handleSuccess(res, rawFile) {
       let file = this.getFile(rawFile);
       file.status = "success";
-      this.onSuccess(res, rawFile);
-      this.onChange(file);
+      this.onSuccess && this.onSuccess(res, rawFile);
+      this.onChange && this.onChange(file);
     },
     handleError(err, rawFile) {
       let file = this.getFile(rawFile);
       file.status = "fail";
-      this.onError(err, rawFile);
-      this.onChange(file);
+      this.onError && this.onError(err, rawFile);
+      this.onChange && this.onChange(file);
       delete this.reqs[file.uid];
     }
   }
