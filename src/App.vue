@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <div class="container">
-      <y-popover
-        v-model="value"
-        width="200"
-        title="标题"
-        content="内容内容，这是一个popover"
-        trigger="click"
-        placement="right"
-      >
-        <y-button type="primary" slot="reference">click</y-button>
-      </y-popover>
-    </div>
+    <ul
+      class="infinite-list"
+      v-infinite-scroll="load"
+      infinite-scroll-disabled="disabled"
+      infinite-scroll-delay="delay"
+      infinite-scroll-distance="distance"
+      infinite-scroll-immediate="immediate"
+      style="overflow:auto"
+    >
+      <li v-for="(i, index) in count" :key="index" class="infinite-list-item">{{ i }}</li>
+    </ul>
   </div>
 </template>
 
@@ -20,15 +19,35 @@ export default {
   name: "App",
   data() {
     return {
-      value: false
+      count: 0,
+      disabled: false,
+      delay: 200,
+      distance: 30,
+      immediate: true
     };
+  },
+  methods: {
+    load() {
+      this.count += 2;
+    }
   }
 };
 </script>
 
 <style lang="scss">
-.container {
-  margin: 150px auto;
-  text-align: center;
+.infinite-list {
+  height: 300px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  .infinite-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: #e8f3fe;
+    margin: 10px;
+    color: #7dbcfc;
+  }
 }
 </style>

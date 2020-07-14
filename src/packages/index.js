@@ -14,6 +14,8 @@ import Progress from './progress.vue'
 import Switch from './switch/switch.vue'
 import Popover from './popover/popover'
 
+import infiniteScroll from './infiniteScroll'
+
 const install = (Vue) => {
     Vue.component(Button.name, Button)
     Vue.component(ButtonGroup.name, ButtonGroup)
@@ -30,6 +32,8 @@ const install = (Vue) => {
     Vue.component(Progress.name, Progress)
     Vue.component(Switch.name, Switch)
     Vue.component(Popover.name, Popover)
+
+    Vue.directive(infiniteScroll.name, infiniteScroll)
 }
 
 // 全局通过script引入
