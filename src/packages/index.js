@@ -12,6 +12,7 @@ import Input from './input.vue'
 import Upload from './upload/upload.vue'
 import Progress from './progress.vue'
 import Switch from './switch/switch.vue'
+import Popover from './popover/popover'
 
 const install = (Vue) => {
     Vue.component(Button.name, Button)
@@ -28,6 +29,7 @@ const install = (Vue) => {
     Vue.component(Upload.name, Upload)
     Vue.component(Progress.name, Progress)
     Vue.component(Switch.name, Switch)
+    Vue.component(Popover.name, Popover)
 }
 
 // 全局通过script引入
