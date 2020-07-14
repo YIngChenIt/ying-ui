@@ -11,6 +11,7 @@ import Main from './container/main.vue'
 import Input from './input.vue'
 import Upload from './upload/upload.vue'
 import Progress from './progress.vue'
+import Switch from './switch/switch.vue'
 
 const install = (Vue) => {
     Vue.component(Button.name, Button)
@@ -26,6 +27,7 @@ const install = (Vue) => {
     Vue.component(Input.name, Input)
     Vue.component(Upload.name, Upload)
     Vue.component(Progress.name, Progress)
+    Vue.component(Switch.name, Switch)
 }
 
 // 全局通过script引入
