@@ -15,6 +15,7 @@ import Switch from './switch/switch.vue'
 import Popover from './popover/popover'
 
 import infiniteScroll from './infiniteScroll'
+import { Message } from './message'
 
 const install = (Vue) => {
     Vue.component(Button.name, Button)
@@ -34,6 +35,8 @@ const install = (Vue) => {
     Vue.component(Popover.name, Popover)
 
     Vue.directive(infiniteScroll.name, infiniteScroll)
+
+    Vue.prototype.$message = Message.init
 }
 
 // 全局通过script引入
