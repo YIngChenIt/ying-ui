@@ -1,11 +1,9 @@
 <template>
   <div class="message-container">
-    <div
-      class="y-message"
-      :style="getStyle(layer)"
-      v-for="(layer, key) in layers"
-      :key="key"
-    >{{layer.message}}<span v-if="layer.showClose" @click="remove(layer, true)">x</span></div>
+    <div class="y-message" :style="getStyle(layer)" v-for="(layer, key) in layers" :key="key">
+      {{layer.message}}
+      <span v-if="layer.showClose" @click="remove(layer, true)">x</span>
+    </div>
   </div>
 </template>
 
@@ -41,7 +39,7 @@ export default {
     remove(layer, flag) {
       clearTimeout(layer.timer);
       this.layers = this.layers.filter(item => item.id !== layer.id);
-      flag && layer.onClose && layer.onClose(layer)
+      flag && layer.onClose && layer.onClose(layer);
     },
     add(options) {
       const layer = {
@@ -51,7 +49,7 @@ export default {
       this.layers.push(layer);
       layer.timer = setTimeout(() => {
         this.remove(layer);
-      }, options.duration);
+      }, options.duration || 3000);
     },
     getStyle(layer) {
       return styleMap[layer.type] ? styleMap[layer.type] : {};
@@ -66,6 +64,7 @@ export default {
   left: 50%;
   top: 0;
   transform: translateX(-50%);
+  z-index: 2003;
   .y-message {
     min-width: 380px;
     box-sizing: border-box;
@@ -79,6 +78,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 2003;
   }
 }
 </style>
