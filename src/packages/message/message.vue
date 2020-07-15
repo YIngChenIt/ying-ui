@@ -5,7 +5,7 @@
       :style="getStyle(layer)"
       v-for="(layer, key) in layers"
       :key="key"
-    >{{layer.message}}</div>
+    >{{layer.message}}<span v-if="layer.showClose" @click="remove(layer, true)">x</span></div>
   </div>
 </template>
 
@@ -38,9 +38,10 @@ export default {
     this.id = 0;
   },
   methods: {
-    remove(layer) {
+    remove(layer, flag) {
       clearTimeout(layer.timer);
       this.layers = this.layers.filter(item => item.id !== layer.id);
+      flag && layer.onClose && layer.onClose(layer)
     },
     add(options) {
       const layer = {
@@ -77,6 +78,7 @@ export default {
     padding: 15px 15px 15px 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 }
 </style>
